@@ -1,0 +1,53 @@
+body {
+  background-color: #DBD3D8;
+  font-family: Microsoft JhengHei;
+}
+
+#breakfastOptions, #normalOptions, #snackOptions, #drinkOptions, #coffeeOptions {
+  display: none;
+  padding-left: 8vw;
+  padding-bottom: 3vh;
+}
+
+#introduction {
+  padding-left: 3vw;
+  padding-top: 5vh;
+  padding-bottom: 3vh;
+}
+
+#color {
+  position: absolute;
+  left: 70vw;
+}
+
+#light {
+  background-color: #91B493;
+}
+
+#medium {
+  background-color: #ED784A;
+}
+
+#fat {
+  background-color: #C73E3A;
+}
+
+#dropDown {
+  padding-top: 3em;
+}
+
+#tableName {
+  position: absolute;
+  top: 5vh;
+  transform: translateX(80%);
+}
+
+#chart {
+  margin-top: 3vh;
+  background-color: white;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
