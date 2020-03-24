@@ -410,10 +410,6 @@ var coffeeInf = [{
     "calories": 184
   },
   {
-    "name": "冰摩卡(大)",
-    "calories": 299
-  },
-  {
     "name": "冰特選那堤(大)",
     "calories": 187
   },
@@ -432,22 +428,34 @@ var coffeeInf = [{
   {
     "name": "冰焦糖瑪琪朵(大)",
     "calories": 215
-  }, {
+  },
+  {
     "name": "香草那堤(大)",
     "calories": 286
+  },
+  {
+    "name": "冰摩卡(大)",
+    "calories": 299
   }
 ]
 
 //早餐
 $("#selectBreakfast").on("click", () => {
+  $("#breakfastOptions").hide();
+  $("#breakfastOptions svg").remove();
+  $("#breakfastOptions div").remove();
   $("#normalOptions").hide();
   $("#normalOptions svg").remove();
+  $("#normalOptions div").remove();
   $("#snackOptions").hide();
   $("#snackOptions svg").remove();
+  $("#snackOptions div").remove();
   $("#drinkOptions").hide();
   $("#drinkOptions svg").remove();
+  $("#drinkOptions div").remove();
   $("#coffeeOptions").hide();
   $("#coffeeOptions svg").remove();
+  $("#coffeeOptions div").remove();
 
   $("#breakfastOptions").append(`<div id="color">
     <p><span id="light"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span> 小於300大卡</span> </p>
@@ -516,12 +524,19 @@ $("#selectBreakfast").on("click", () => {
 $("#selectNormal").on("click", () => {
   $("#breakfastOptions").hide();
   $("#breakfastOptions svg").remove();
+  $("#breakfastOptions div").remove();
+  $("#normalOptions").hide();
+  $("#normalOptions svg").remove();
+  $("#normalOptions div").remove();
   $("#snackOptions").hide();
   $("#snackOptions svg").remove();
+  $("#snackOptions div").remove();
   $("#drinkOptions").hide();
   $("#drinkOptions svg").remove();
+  $("#drinkOptions div").remove();
   $("#coffeeOptions").hide();
   $("#coffeeOptions svg").remove();
+  $("#coffeeOptions div").remove();
 
   $("#normalOptions").append(`<div id="color">
     <p><span id="light"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span> 小於300大卡</span> </p>
@@ -586,12 +601,19 @@ $("#selectNormal").on("click", () => {
 $("#selectSnack").on("click", () => {
   $("#breakfastOptions").hide();
   $("#breakfastOptions svg").remove();
+  $("#breakfastOptions div").remove();
   $("#normalOptions").hide();
   $("#normalOptions svg").remove();
+  $("#normalOptions div").remove();
+  $("#snackOptions").hide();
+  $("#snackOptions svg").remove();
+  $("#snackOptions div").remove();
   $("#drinkOptions").hide();
   $("#drinkOptions svg").remove();
+  $("#drinkOptions div").remove();
   $("#coffeeOptions").hide();
   $("#coffeeOptions svg").remove();
+  $("#coffeeOptions div").remove();
 
   $("#snackOptions").append(`<div id="color">
     <p><span id="light"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span> 小於300大卡</span> </p>
@@ -656,12 +678,19 @@ $("#selectSnack").on("click", () => {
 $("#selectDrink").on("click", () => {
   $("#breakfastOptions").hide();
   $("#breakfastOptions svg").remove();
+  $("#breakfastOptions div").remove();
   $("#normalOptions").hide();
   $("#normalOptions svg").remove();
+  $("#normalOptions div").remove();
   $("#snackOptions").hide();
   $("#snackOptions svg").remove();
+  $("#snackOptions div").remove();
+  $("#drinkOptions").hide();
+  $("#drinkOptions svg").remove();
+  $("#drinkOptions div").remove();
   $("#coffeeOptions").hide();
   $("#coffeeOptions svg").remove();
+  $("#coffeeOptions div").remove();
 
   $("#drinkOptions").append(`<div id="color">
     <p><span id="light"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span> 小於300大卡</span> </p>
@@ -726,12 +755,19 @@ $("#selectDrink").on("click", () => {
 $("#selectCoffee").on("click", () => {
   $("#breakfastOptions").hide();
   $("#breakfastOptions svg").remove();
+  $("#breakfastOptions div").remove();
   $("#normalOptions").hide();
   $("#normalOptions svg").remove();
+  $("#normalOptions div").remove();
   $("#snackOptions").hide();
   $("#snackOptions svg").remove();
+  $("#snackOptions div").remove();
   $("#drinkOptions").hide();
   $("#drinkOptions svg").remove();
+  $("#drinkOptions div").remove();
+  $("#coffeeOptions").hide();
+  $("#coffeeOptions svg").remove();
+  $("#coffeeOptions div").remove();
 
   $("#coffeeOptions").append(`<div id="color">
     <p><span id="light"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span> 小於300大卡</span> </p>
