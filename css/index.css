@@ -1,23 +1,83 @@
 body {
-  background-color: #DBD3D8;
+  /* background-color: #DBD3D8; */
   font-family: Microsoft JhengHei;
+}
+
+.storeOptions {
+  font-size: 2em;
+}
+
+#options {
+  background-color: #F7C242;
+  padding-top: 5vh;
+  height: 100vh;
+}
+
+#options #Mcs p {
+  color: white;
+  text-shadow: 2px 2px 5px rgb(100, 100, 100);
+}
+
+#Mcs {
+  /* display: none; */
+}
+
+#tableName {
+  padding-top: 5vh;
+  padding-left: 20vw;
+}
+
+#chart {
+  width: inherit;
+}
+
+#mcPieCharts {
+  display: none;
+}
+
+#mcTable {
+  margin-top: 2vh;
+}
+
+#pieAxis {
+  margin-top: 1em;
+}
+
+.tags {
+  background-color: #bababa;
+  padding-left: .3em;
+  padding-right: .3em;
+  padding-top: .1em;
+  padding-bottom: .1em;
+  margin: .2em;
+  color: white;
+  border-radius: 10px;
+}
+
+.unclicked:hover {
+  background-color: #bababa;
+  color: white;
+  cursor: pointer;
+}
+
+.clicked {
+  background-color: #bababa;
+  color: white;
 }
 
 #breakfastOptions, #normalOptions, #snackOptions, #drinkOptions, #coffeeOptions {
   display: none;
-  padding-left: 8vw;
   padding-bottom: 3vh;
 }
 
 #introduction {
-  padding-left: 3vw;
   padding-top: 5vh;
   padding-bottom: 3vh;
 }
 
 #color {
   position: absolute;
-  left: 70vw;
+  left: 50vw;
 }
 
 #light {
@@ -32,19 +92,10 @@ body {
   background-color: #C73E3A;
 }
 
-#dropDown {
-  padding-top: 3em;
-}
-
-#tableName {
-  position: absolute;
-  top: 5vh;
-  transform: translateX(80%);
-}
-
 #chart {
   margin-top: 3vh;
   background-color: white;
+  position: absolute;
 }
 
 .dropdown-item:hover {

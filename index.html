@@ -6,66 +6,103 @@
   <title>McDonald's Calories</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="css/index.css">
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://rawgithub.com/Caged/d3-tip/master/examples/example-styles.css">
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.min.js"></script>
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div id="dropDown" class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          熱量評估選項
-        </a>
-        <div class="dropdown-menu">
-          <p id="selectBreakfast" class="dropdown-item">活力早餐</p>
-          <p id="selectNormal" class="dropdown-item">一般主餐</p>
-          <p id="selectSnack" class="dropdown-item">點心</p>
-          <p id="selectDrink" class="dropdown-item">飲料</p>
-          <p id="selectCoffee" class="dropdown-item">咖啡</p>
+      <!-- 左邊選擇選項 -->
+      <div class="col-2">
+        <div id="options">
+          <!-- <p id="optionsMc" class="storeOptions dropdown-item">麥當勞</p> -->
+          <div id="Mcs">
+            <p id="pickItems" class="pieItems dropdown-item">熱量試算 (<span style='color:#F75C2F;text-shadow:0px 0px 0px'>New Function</span>)</p>
+            <p id="selectBreakfast" class="barItems dropdown-item">活力早餐熱量</p>
+            <p id="selectNormal" class="barItems dropdown-item">一般主餐熱量</p>
+            <p id="selectSnack" class="barItems dropdown-item">點心熱量</p>
+            <p id="selectDrink" class="barItems dropdown-item">飲料熱量</p>
+            <p id="selectCoffee" class="barItems dropdown-item">咖啡熱量</p>
+          </div>
         </div>
       </div>
-
-    </div>
-    <div id="tableName">
-      <h1>麥當勞熱量評估長條圖</h1>
-    </div>
-    <div id="chart" class="row">
-      <div id="introduction">
-        <h3>資料說明</h3>
-        <p>有許多人曾經減過肥、正在減肥、未來會減肥，而這些人眼中的地雷食物莫過於麥當勞的各式美食</p>
-        <p>但我思索過後認為麥當勞的食物百百種，不太可能每樣食物都熱量爆表</p>
-        <p>因此，我蒐集了麥當勞大部分的菜單，簡單的將其分類後做出分析</p>
-        <p>綠色表示熱量低於300大卡、橙色表示熱量介於300大卡與500大卡之間，紅色則是超過500大卡</p>
-        <hr>
-        <p>經過本次分析可以得知，麥當勞並不是每樣食物都是減肥時碰不得的</p>
-        <p>只要經過審慎評估，並且做好熱量攝取規劃，依然可以在麥當勞吃得開心、又不違背減重的本意</p>
-        <p>在此列出麥當勞熱量排行前三名，出乎意料的是這三名竟然都是麥當勞早餐系列，也可以從這個結果得知早餐風險也很高喔！</p>
-        <ul>
-          <li>脆鷄腿排烤土司-780大卡</li>
-          <li>鷄塊鬆餅大早餐 - 694大卡</li>
-          <li>黃金豬排烤土司 - 639大卡</li>
-        </ul>
-        <a href="https://ryanwangblog.com/%E5%AF%A6%E7%94%A8%E7%94%9F%E6%B4%BB%E8%B3%87%E8%A8%8A/%E6%B8%9B%E9%87%8D%E7%98%A6%E8%BA%AB/27226" target="_blank">參考資料</a>
-      </div>
-
-      <div id="breakfastOptions">
-      </div>
-      <div id="normalOptions">
-      </div>
-      <div id="snackOptions">
-      </div>
-      <div id="drinkOptions">
-      </div>
-      <div id="coffeeOptions">
+      <!-- 右邊圖表區 -->
+      <div class="col-10">
+        <div id="tableName">
+          <h1>麥當勞餐飲熱量大揭露</h1>
+        </div>
+        <div id="chart">
+          <!-- 圓餅圖 -->
+          <div id="pieCharts">
+            <div id="mcPieCharts">
+              <h3>請挑選想要的餐飲:</h3>
+              <p id="pickedItem"></p>
+              <div class="buttons">
+                <button id="analyze" class="btn btn-secondary">分析熱量</button>
+              </div>
+              <div id="pieAxis">
+              </div>
+              <div id="mcTable">
+                <table class="table col">
+                  <thead>
+                    <th scope="col">活力早餐</th>
+                    <th scope="col">一般主餐</th>
+                    <th scope="col">點心</th>
+                    <th scope="col">飲料</th>
+                    <th scope="col">咖啡</th>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+              <div id="piePresent">
+              </div>
+            </div>
+          </div>
+          <!-- 長條圖 -->
+          <div id="barCharts">
+            <div id="mcBarCharts">
+              <div id="breakfastOptions">
+              </div>
+              <div id="normalOptions">
+              </div>
+              <div id="snackOptions">
+              </div>
+              <div id="drinkOptions">
+              </div>
+              <div id="coffeeOptions">
+              </div>
+            </div>
+          </div>
+          <div id="introduction">
+            <h3>資料說明</h3>
+            <p>有許多人曾經減過肥、正在減肥、未來會減肥，而這些人眼中的地雷食物莫過於麥當勞的各式美食</p>
+            <p>但我思索過後認為麥當勞的食物百百種，不太可能每樣食物都熱量爆表</p>
+            <p>因此，我蒐集了麥當勞大部分的菜單，簡單的將其分類後做出分析</p>
+            <p>綠色表示熱量低於300大卡、橙色表示熱量介於300大卡與500大卡之間，紅色則是超過500大卡</p>
+            <hr>
+            <p>經過本次分析可以得知，麥當勞並不是每樣食物都是減肥時碰不得的</p>
+            <p>只要經過審慎評估，並且做好熱量攝取規劃，依然可以在麥當勞吃得開心、又不違背減重的本意</p>
+            <p>在此列出麥當勞熱量排行前三名，出乎意料的是這三名竟然都是麥當勞早餐系列，也可以從這個結果得知早餐風險也很高喔！</p>
+            <ul>
+              <li>脆鷄腿排烤土司-780大卡</li>
+              <li>鷄塊鬆餅大早餐 - 694大卡</li>
+              <li>黃金豬排烤土司 - 639大卡</li>
+            </ul>
+            <a href="https://ryanwangblog.com/%E5%AF%A6%E7%94%A8%E7%94%9F%E6%B4%BB%E8%B3%87%E8%A8%8A/%E6%B8%9B%E9%87%8D%E7%98%A6%E8%BA%AB/27226" target="_blank">參考資料</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
   <script src="js/index.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/mc.js"></script>
 </body>
 
 </html>
