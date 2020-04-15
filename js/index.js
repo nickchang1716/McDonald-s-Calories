@@ -1,4 +1,10 @@
 let mcChoosed = false;
+let htmlHeight = 0;
+
+htmlHeight = $(document).height();
+$("#options").css("height", `${htmlHeight}px`);
+
+
 $("#optionsMc").on("click", () => {
   if (mcChoosed == false) {
     $("#Mcs").show("fast");

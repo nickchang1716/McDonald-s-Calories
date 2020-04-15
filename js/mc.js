@@ -92,6 +92,8 @@ $("#pickItems").on("click", () => {
     }
     tableIsHidden = false;
   }
+  htmlHeight = $(document).height();
+  $("#options").css("height", `${htmlHeight}px`);
   $(".buttons #reanalyze").remove();
 })
 
@@ -104,22 +106,24 @@ let color2 = d3.scaleOrdinal(d3.schemeSet2);
 let pieColorAxis = ``;
 $("tbody").on("click", ".unclicked", function() {
   let thisName = $(this).text();
-  $("#pickedItem").append(`<span class="tags">${thisName}</span>`);
-  for (let i = 0; i < itemName.length; i++) {
-    if (itemName[i] == thisName) {
-      totalCal += itemCalories[i];
-      thisCal.push(itemCalories[i]);
-      thisItemName.push(thisName);
-      if (thisCal.length > 12) {
-        pieColorAxis += `<span style="background-color:${color2(thisItemName.indexOf(thisName)-10)};margin-left:1em;border-radius:100%"> &nbsp;&nbsp;&nbsp;&nbsp;</span><span style="padding-left:.2em"> ${thisName}</span>`;
-      } else {
-        pieColorAxis += `<span style="background-color:${color1(thisItemName.indexOf(thisName))};margin-left:1em;border-radius:100%"> &nbsp;&nbsp;&nbsp;&nbsp;</span><span style="padding-left:.2em"> ${thisName}</span>`;
-      }
+  if (thisName != "") {
+    $("#pickedItem").append(`<span class="tags">${thisName}</span>`);
+    for (let i = 0; i < itemName.length; i++) {
+      if (itemName[i] == thisName) {
+        totalCal += itemCalories[i];
+        thisCal.push(itemCalories[i]);
+        thisItemName.push(thisName);
+        if (thisCal.length > 12) {
+          pieColorAxis += `<span style="background-color:${color2(thisItemName.indexOf(thisName)-10)};margin-left:1em;border-radius:100%"> &nbsp;&nbsp;&nbsp;&nbsp;</span><span style="padding-left:.2em"> ${thisName}</span>`;
+        } else {
+          pieColorAxis += `<span style="background-color:${color1(thisItemName.indexOf(thisName))};margin-left:1em;border-radius:100%"> &nbsp;&nbsp;&nbsp;&nbsp;</span><span style="padding-left:.2em"> ${thisName}</span>`;
+        }
 
+      }
     }
+    $(this).removeClass("unclicked");
+    $(this).addClass("clicked");
   }
-  $(this).removeClass("unclicked");
-  $(this).addClass("clicked");
 })
 
 $(".buttons").on("click", "#reanalyze", function() {
@@ -215,6 +219,8 @@ $(".buttons").on("click", "#reanalyze", function() {
     }
     tableIsHidden = false;
   }
+  htmlHeight = $(document).height();
+  $("#options").css("height", `${htmlHeight}px`);
   $(".buttons #reanalyze").remove();
 })
 // $("#pickedItem").on("click", ".tags", function() {
@@ -289,6 +295,9 @@ $("#analyze").on("click", () => {
     .attr("font-size", "3em")
 
   $("#piePresent").show();
+  if ($("#options").height() > $("#piePresent").height() + 150) {
+    $("#options").css("height", `125vh`);
+  }
 })
 
 
@@ -352,7 +361,10 @@ $("#selectBreakfast").on("click", () => {
     .tickFormat(item => item + 'kcal');
   let axis1Y = breakfastInf.length * 30 + 18;
   s1.append('g').call(axis1).attr('transform', `translate(180,${axis1Y})`);
-  $("#breakfastOptions").show("slow");
+  $("#breakfastOptions").show();
+  if ($("#options").height() > $("#breakfastOptions").height() + 150) {
+    $("#options").css("height", `110vh`);
+  }
 })
 
 //一般主餐
@@ -411,7 +423,10 @@ $("#selectNormal").on("click", () => {
     .tickFormat(item => item + 'kcal');
   let axis2Y = normalInf.length * 30 + 18;
   s2.append('g').call(axis2).attr('transform', `translate(180,${axis2Y})`);
-  $("#normalOptions").show("slow");
+  $("#normalOptions").show();
+  if ($("#options").height() > $("#normalOptions").height() + 150) {
+    $("#options").css("height", `150vh`);
+  }
 })
 
 //點心
@@ -470,7 +485,10 @@ $("#selectSnack").on("click", () => {
     .tickFormat(item => item + 'kcal');
   let axis3Y = snackInf.length * 30 + 18;
   s3.append('g').call(axis3).attr('transform', `translate(180,${axis3Y})`);
-  $("#snackOptions").show("slow");
+  $("#snackOptions").show();
+  if ($("#options").height() > $("#snackOptions").height() + 150) {
+    $("#options").css("height", `100vh`);
+  }
 })
 
 //飲料
@@ -529,7 +547,10 @@ $("#selectDrink").on("click", () => {
     .tickFormat(item => item + 'kcal');
   let axis4Y = drinkInf.length * 30 + 18;
   s4.append('g').call(axis4).attr('transform', `translate(250,${axis4Y})`);
-  $("#drinkOptions").show("slow");
+  $("#drinkOptions").show();
+  if ($("#options").height() > $("#drinkOptions").height() + 150) {
+    $("#options").css("height", `160vh`);
+  }
 })
 
 //咖啡
@@ -588,6 +609,8 @@ $("#selectCoffee").on("click", () => {
     .tickFormat(item => item + 'kcal');
   let axis5Y = coffeeInf.length * 30 + 18;
   s5.append('g').call(axis5).attr('transform', `translate(180,${axis5Y})`);
-
-  $("#coffeeOptions").show("slow");
+  $("#coffeeOptions").show();
+  if ($("#options").height() > $("#coffeeOptions").height() + 150) {
+    $("#options").css("height", `100vh`);
+  }
 })
