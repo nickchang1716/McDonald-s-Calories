@@ -362,9 +362,8 @@ $("#selectBreakfast").on("click", () => {
   let axis1Y = breakfastInf.length * 30 + 18;
   s1.append('g').call(axis1).attr('transform', `translate(180,${axis1Y})`);
   $("#breakfastOptions").show();
-  if ($("#options").height() > $("#breakfastOptions").height() + 150) {
-    $("#options").css("height", `110vh`);
-  }
+  $("#options").css("height", `110vh`);
+
 })
 
 //一般主餐
@@ -424,9 +423,8 @@ $("#selectNormal").on("click", () => {
   let axis2Y = normalInf.length * 30 + 18;
   s2.append('g').call(axis2).attr('transform', `translate(180,${axis2Y})`);
   $("#normalOptions").show();
-  if ($("#options").height() > $("#normalOptions").height() + 150) {
-    $("#options").css("height", `150vh`);
-  }
+  $("#options").css("height", `150vh`);
+
 })
 
 //點心
@@ -486,9 +484,9 @@ $("#selectSnack").on("click", () => {
   let axis3Y = snackInf.length * 30 + 18;
   s3.append('g').call(axis3).attr('transform', `translate(180,${axis3Y})`);
   $("#snackOptions").show();
-  if ($("#options").height() > $("#snackOptions").height() + 150) {
-    $("#options").css("height", `100vh`);
-  }
+
+  $("#options").css("height", `100vh`);
+
 })
 
 //飲料
@@ -548,9 +546,8 @@ $("#selectDrink").on("click", () => {
   let axis4Y = drinkInf.length * 30 + 18;
   s4.append('g').call(axis4).attr('transform', `translate(250,${axis4Y})`);
   $("#drinkOptions").show();
-  if ($("#options").height() > $("#drinkOptions").height() + 150) {
-    $("#options").css("height", `160vh`);
-  }
+  $("#options").css("height", `160vh`);
+
 })
 
 //咖啡
@@ -610,7 +607,6 @@ $("#selectCoffee").on("click", () => {
   let axis5Y = coffeeInf.length * 30 + 18;
   s5.append('g').call(axis5).attr('transform', `translate(180,${axis5Y})`);
   $("#coffeeOptions").show();
-  if ($("#options").height() > $("#coffeeOptions").height() + 150) {
-    $("#options").css("height", `100vh`);
-  }
+  $("#options").css("height", `100vh`);
+
 })
